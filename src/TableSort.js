@@ -6,6 +6,8 @@ import {
   IntegratedSorting,
   SearchState,
   IntegratedFiltering,
+  PagingState,
+  IntegratedPaging,
 } from "@devexpress/dx-react-grid";
 import {
   Grid,
@@ -14,6 +16,7 @@ import {
   Toolbar,
   SearchPanel,
   TableFixedColumns,
+  PagingPanel,
 } from "@devexpress/dx-react-grid-material-ui";
 
 export default ({ fullData }) => {
@@ -37,10 +40,17 @@ export default ({ fullData }) => {
     { columnName: "recovered", width: 120 },
   ]);
   const [leftColumns] = useState(["state", "channel"]);
+  const [pageSizes] = useState([5, 10, 15, 0]);
   return (
     <div className={styles.parentTable}>
       <Paper className={styles.tableStyle}>
         <Grid rows={rows} columns={columns}>
+        
+        <PagingState
+          defaultCurrentPage={0}
+          defaultPageSize={5}
+        />
+        <IntegratedPaging />
           <SearchState value={searchValue} onValueChange={setSearchState} />
 
           <SortingState sorting={sorting} onSortingChange={setSorting} />
@@ -51,6 +61,9 @@ export default ({ fullData }) => {
           <Toolbar />
           <SearchPanel />
           <TableFixedColumns leftColumns={leftColumns} />
+          <PagingPanel
+          pageSizes={pageSizes}
+        />
         </Grid>
       </Paper>
     </div>
