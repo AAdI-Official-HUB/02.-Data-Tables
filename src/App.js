@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import TableSort from './TableSort.js';
+import {fetchApiData} from './Api/Api';
 
-function App() {
+class App extends Component{
+  constructor() { 
+    super();
+    this.state = {
+      fullData: [],
+    };
+  }
+  async componentDidMount() {
+    try {
+      const fetchedData = await fetchApiData();
+      this.setState({
+        fullData: fetchedData,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+render(){
+  const { fullData } = this.state;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TableSort fullData={fullData}/>
     </div>
-  );
+  )
 }
 
+}
 export default App;
