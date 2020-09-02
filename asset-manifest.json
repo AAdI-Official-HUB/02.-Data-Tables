@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/02.-Data-Tables/static/css/main.93cac2a9.chunk.css",
+    "main.js": "/02.-Data-Tables/static/js/main.8dee01de.chunk.js",
+    "main.js.map": "/02.-Data-Tables/static/js/main.8dee01de.chunk.js.map",
+    "runtime-main.js": "/02.-Data-Tables/static/js/runtime-main.f3e2ec18.js",
+    "runtime-main.js.map": "/02.-Data-Tables/static/js/runtime-main.f3e2ec18.js.map",
+    "static/css/2.3c03f26f.chunk.css": "/02.-Data-Tables/static/css/2.3c03f26f.chunk.css",
+    "static/js/2.e0bee5dd.chunk.js": "/02.-Data-Tables/static/js/2.e0bee5dd.chunk.js",
+    "static/js/2.e0bee5dd.chunk.js.map": "/02.-Data-Tables/static/js/2.e0bee5dd.chunk.js.map",
+    "index.html": "/02.-Data-Tables/index.html",
+    "precache-manifest.fb4f15a4fa55e4d88ab6bf1e91ae8f8d.js": "/02.-Data-Tables/precache-manifest.fb4f15a4fa55e4d88ab6bf1e91ae8f8d.js",
+    "service-worker.js": "/02.-Data-Tables/service-worker.js",
+    "static/css/2.3c03f26f.chunk.css.map": "/02.-Data-Tables/static/css/2.3c03f26f.chunk.css.map",
+    "static/css/main.93cac2a9.chunk.css.map": "/02.-Data-Tables/static/css/main.93cac2a9.chunk.css.map",
+    "static/js/2.e0bee5dd.chunk.js.LICENSE.txt": "/02.-Data-Tables/static/js/2.e0bee5dd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3e2ec18.js",
+    "static/css/2.3c03f26f.chunk.css",
+    "static/js/2.e0bee5dd.chunk.js",
+    "static/css/main.93cac2a9.chunk.css",
+    "static/js/main.8dee01de.chunk.js"
+  ]
+}
