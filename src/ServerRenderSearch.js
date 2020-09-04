@@ -16,15 +16,14 @@ import { Loading } from '../../../theme-sources/material-ui/components/loading';
 
 const URL = 'https://js.devexpress.com/Demos/WidgetsGalleryDataService/api/orders?requireTotalCount=true';
 
-export default () => {
-  const [columns] = useState([
-    { name: 'OrderNumber', title: 'Order Number' },
-    { name: 'OrderDate', title: 'Order Date' },
-    { name: 'StoreCity', title: 'Store City' },
-    { name: 'StoreState', title: 'Store State' },
-    { name: 'Employee', title: 'Employee' },
-    { name: 'SaleAmount', title: 'Sale Amount' },
-  ]);
+export default ({fullData}) => {
+    const columns = [
+        { name: "state", title: "States" },
+        { name: "active", title: "Active" },
+        { name: "confirmed", title: "Confirmed" },
+        { name: "deaths", title: "Deaths" },
+        { name: "recovered", title: "Recovered" },
+      ];
   const [rows, setRows] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [pageSize] = useState(6);
