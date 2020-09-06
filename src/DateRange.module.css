@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-size:20px;
+    font-family: arial;
+}
+.outerBox{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    margin-top: 25px !important;
+}
+
+.box1{
+    margin-left: 15px !important;
+    width:200px !important;
+    border: 2px solid white;
+    border-radius: 5px !important;
+    padding: 5px 5px 5px 5px !important;
+    box-shadow: 1px 1px 1px 1px #888888;
+}
+.box2{
+    margin-left: 15px !important;
+    width: 200px !important;
+    border: 2px solid white;
+    border-radius: 5px !important;
+    padding: 5px 5px 5px 5px !important;
+    box-shadow: 1px 1px 1px 1px #888888;
+}

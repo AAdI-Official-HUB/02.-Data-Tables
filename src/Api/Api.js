@@ -20,4 +20,3 @@ export const fetchApiData = async () =>{
        console.log(error) 
     }
 }
-fetchApiData();

@@ -4,9 +4,12 @@
     display: flex;
     justify-content: center;
 }
+.containerTable{
+    width: auto;
+    height: auto;
+}
 .tableStyle{
-    margin-top: 70px !important;
-    width: 700px;
+    width: 770px;
 }
 @media(max-width:770px){
     .parentTable{

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import TableSort from './TableSort.js';
 import {fetchApiData} from './Api/Api';
-import DateTimePicker from './DateTimePicker'
+import DateTimePicker from './TimePicker';
+import DateRange from './DateRange';
 class App extends Component{
   constructor() { 
     super();
@@ -25,6 +26,7 @@ render(){
   const { fullData } = this.state;
   return (
     <div>
+      <DateRange/>
       <DateTimePicker/>
       <TableSort fullData={fullData}/>
     </div>

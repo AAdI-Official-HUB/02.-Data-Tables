@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import Paper from "@material-ui/core/Paper";
 import styles from "./TableSort.module.css";
+import cx from "classnames";
 import {
   SelectionState,
   SortingState,
@@ -24,12 +25,15 @@ import {
   TableSelection,
   TableFilterRow,
 } from "@devexpress/dx-react-grid-material-ui";
-import { GridExporter } from '@devexpress/dx-react-grid-export';
-import saveAs from 'file-saver';
+import { GridExporter } from "@devexpress/dx-react-grid-export";
+import saveAs from "file-saver";
 
 const onSave = (workbook) => {
   workbook.xlsx.writeBuffer().then((buffer) => {
-    saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
+    saveAs(
+      new Blob([buffer], { type: "application/octet-stream" }),
+      "DataGrid.xlsx"
+    );
   });
 };
 export default ({ fullData }) => {
@@ -63,71 +67,72 @@ export default ({ fullData }) => {
   const [pageSizes] = useState([5, 10, 15, 0]);
 
   const [defaultSorting] = useState([
-    { columnName: 'state', direction: 'asc' },
+    { columnName: "state", direction: "asc" },
   ]);
   const [sortingStateColumnExtensions] = useState([
-    { columnName: 'active', sortingEnabled: false },
-    { columnName: 'confirmed', sortingEnabled: false },
-    { columnName: 'deaths', sortingEnabled: false },
+    { columnName: "active", sortingEnabled: false },
+    { columnName: "confirmed", sortingEnabled: false },
+    { columnName: "deaths", sortingEnabled: false },
   ]);
 
   const [filteringStateColumnExtensions] = useState([
-    { columnName: 'active', filteringEnabled: false },
-    { columnName: 'confirmed', filteringEnabled: false },
-    { columnName: 'deaths', filteringEnabled: false }
+    { columnName: "active", filteringEnabled: false },
+    { columnName: "confirmed", filteringEnabled: false },
+    { columnName: "deaths", filteringEnabled: false },
   ]);
   return (
     <div className={styles.parentTable}>
-      <Paper className={styles.tableStyle}>
-        <Grid rows={rows} columns={columns}>
-        <SelectionState
-            selection={selection}
-            onSelectionChange={setSelection}
-          />
-          <SearchState value={searchValue} onValueChange={setSearchState} />
-        <FilteringState
-          columnExtensions={filteringStateColumnExtensions}
-        />
-        <IntegratedFiltering />
-        <PagingState
-          defaultCurrentPage={0}
-          defaultPageSize={5}
-        />
-       <IntegratedSelection />
-        <IntegratedPaging />
-          
+      <div className={cx(
+            styles.containerTable,
+            "tc dib bg-light-green br3 pa3 ma2 bw5 shadow-5"
+          )}>
+        <Paper
+          className={cx(
+            styles.tableStyle,
+            "tc dib bg-light-green br3 pa3 ma2 bw5 shadow-5"
+          )}
+        >
+          <Grid rows={rows} columns={columns}>
+            <SelectionState
+              selection={selection}
+              onSelectionChange={setSelection}
+            />
+            <SearchState value={searchValue} onValueChange={setSearchState} />
+            <FilteringState columnExtensions={filteringStateColumnExtensions} />
+            <IntegratedFiltering />
+            <PagingState defaultCurrentPage={0} defaultPageSize={5} />
+            <IntegratedSelection />
+            <IntegratedPaging />
 
-          <SortingState sorting={sorting} onSortingChange={setSorting} defaultSorting={defaultSorting}
-          columnExtensions={sortingStateColumnExtensions}/>
-          <IntegratedFiltering />
-          <IntegratedSorting />
-          <Table columnExtensions={tableColumnExtensions} />
-          <TableHeaderRow showSortingControls />
-          <Toolbar />
-          <SearchPanel />
-          <TableSelection showSelectAll />
-          <TableFilterRow />
-          <TableFixedColumns leftColumns={leftColumns} />
-          <PagingPanel
-          pageSizes={pageSizes}
-        />
-        <ExportPanel startExport={startExport} />
-        </Grid>
-        <GridExporter
-        ref={exporterRef}
-        rows={fullData}
-        columns={columns}
-        selection={selection}
-        sorting={sorting}
-        onSave={onSave}
-      />
-      <span>
-        Total rows selected:
-        {' '}
-        {selection.length}
-      </span>
-      </Paper>
-      
+            <SortingState
+              sorting={sorting}
+              onSortingChange={setSorting}
+              defaultSorting={defaultSorting}
+              columnExtensions={sortingStateColumnExtensions}
+            />
+            <IntegratedFiltering />
+            <IntegratedSorting />
+            <Table columnExtensions={tableColumnExtensions} />
+            <TableHeaderRow showSortingControls />
+            <Toolbar />
+            <SearchPanel />
+            <TableSelection showSelectAll />
+            <TableFilterRow />
+            <TableFixedColumns leftColumns={leftColumns} />
+            <PagingPanel pageSizes={pageSizes} />
+            <ExportPanel startExport={startExport} />
+          </Grid>
+          <GridExporter
+            ref={exporterRef}
+            rows={fullData}
+            columns={columns}
+            selection={selection}
+            sorting={sorting}
+            onSave={onSave}
+          />
+          <span>Total rows selected: {selection.length}</span>
+        </Paper>
+      </div>
     </div>
   );
 };
